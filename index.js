@@ -62,6 +62,7 @@ const validateEmailId = (emailId) =>{
     const reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
     return reg.test(emailId);
 }
+
 //validate email id
 function validateEmail(emailField) {
     if ( !validateEmailId(emailField.value)) {
@@ -125,8 +126,10 @@ function validatePassword1() {
     
     if(validateLength(value) && validateLowerCase(value) && validateUpperCase(value) && validateNumbers(value)){
         passwordMessage.style.display = 'none';
+        password.style.borderColor = '';
     }else{
         passwordMessage.style.display = 'block';
+        password.style.borderColor = 'red';
     }
 }
 
@@ -186,9 +189,7 @@ signUpBtn.addEventListener('click',()=>{
                         classMessage, 
                         emailMessage, 
                         genderMessage, 
-                        mobileNumberMessage,
-                        passwordMessage,
-                        confirmPaswordMessage
+                        mobileNumberMessage
                     ];
     const invalidMessages = [
                         "Invalid First Name",
@@ -197,12 +198,9 @@ signUpBtn.addEventListener('click',()=>{
                         "Invalid Class",
                         "Invalid Email Address",
                         "Invalid Gender",
-                        "Invalid Mobile No.",
-                        "Invalid Password",
-                        "Passwords do not match"
+                        "Invalid Mobile No."
     ];
                     
-    // console.log(document.getElementById('class').value);
 
     let isFieldEmpty = false;
 
@@ -255,7 +253,7 @@ signUpBtn.addEventListener('click',()=>{
         }, 5000);
 
         student.forEach(item => item.value = '');
-
+        hobbiesList = [];
         displayAllClasses();
         displayAllGenders();
     }
