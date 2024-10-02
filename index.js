@@ -5,7 +5,7 @@ const studentList = JSON.parse(localStorage.getItem('students')) || [];
 
 const genders = ['Choose a gender', 'Male', 'Female', 'Transgender', 'Gender Neutral', 'Non-Binary', 'Agender', 'Pangender', 'Genderqueer', 'Two-Spirit'];
 const classes = ['Choose a class', 'Class 1', 'Class 2', 'Class 3', 'Class 4', 'Class 5', 'Class 6', 'Class 7', 'Class 8', 'Class 9', 'Class 10', 'Class 11', 'Class 12'];
-let hobbiesList = ["temp","temp","temp"];
+let hobbiesList = [];
 
 // Student Data
 let studFirstName = document.getElementById("first-name");
@@ -192,7 +192,10 @@ signUpBtn.addEventListener('click',()=>{
                         classMessage, 
                         emailMessage, 
                         genderMessage, 
-                        mobileNumberMessage
+                        mobileNumberMessage,
+                        passwordMessage,
+                        confirmPaswordMessage
+
                     ];
     const invalidMessages = [
                         "Invalid First Name",
@@ -201,8 +204,14 @@ signUpBtn.addEventListener('click',()=>{
                         "Invalid Class",
                         "Invalid Email Address",
                         "Invalid Gender",
-                        "Invalid Mobile No."
+                        "Invalid Mobile No.",
+                        "Invalid Password",
+                        "Invalid Confirm Password",
     ];
+
+    if (studClass.value==='0'){
+        classMessage.textContent = "Select Class";
+    }
                     
 
     let isFieldEmpty = false;
@@ -217,14 +226,16 @@ signUpBtn.addEventListener('click',()=>{
     for(let index in student){
         if(isEmpty(student[index].value)){
             student[index].style.borderColor = "red";
-            if(index < 6)
+            if(index < 7)
                 displayMessages[index].textContent = invalidMessages[index];
             isFieldEmpty = true;
         }else{
             student[index].style.borderColor = "";
-            // displayMessages[index].textContent = "";
+            displayMessages[index].textContent = "";
         }
     }
+
+    
 
     if(!isFieldEmpty && checkPassword && checkPasswordEquality && validateEmailId(studEmailId.value) && studGender.value!=='0' && studClass.value!=='0'){
         const formWrapper = document.querySelector('#reg-form');
@@ -310,5 +321,3 @@ function displayAllClasses(){
     }
 }
 displayAllClasses();
-
-

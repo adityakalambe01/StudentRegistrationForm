@@ -9,14 +9,20 @@ body::-webkit-scrollbar {
     display: none;
 }
 
+body{
+    /* display: flex;
+    justify-content: center;
+    min-height: 100vh; */
+    
+}
+
 .form-wrapper{
     min-height: 100vh;
     width: 500px;
-    margin: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+    margin: 10px auto 20px auto;
 }
 
 h1{
@@ -36,13 +42,8 @@ h1{
     display: flex;
     width: 100%;
     flex-direction: column;
-    /* background-color: rgba(128, 128, 128, 0.476); */
     color: black;
     border-radius: 25px;
-
-    /* background: linear-gradient(90deg, red, green, blue); */
-    /* -webkit-background-clip: border;
-    -webkit-border-color: transparent; */
 }
 
 .full-name{
@@ -232,7 +233,9 @@ div #last-name-message,
 div #mobile-number-message, 
 div #address-message, 
 div #email-id-message, 
-div #confirm-password-message
+div #confirm-password-message,
+div #gender-message,
+div #class-message
 {
     color: red;
     font-size: 12px;
@@ -283,11 +286,10 @@ div #confirm-password-message
 }
 
 
-@media screen and (max-width:600px) {
-
+@media (max-width:600px) {
     body{
-        min-height: 100vh;
-        width: 100%;
+        display: flex;
+        justify-content: center;
     }
 
     h1{
@@ -297,6 +299,7 @@ div #confirm-password-message
     .form-wrapper{
         width: 350px;
         /* margin: auto; */
+        margin-bottom: 15px;
     }
     .full-name, .class-gender, .student-acc-password{
         flex-direction: column;
@@ -309,3 +312,4 @@ div #confirm-password-message
 
 
 }
+
