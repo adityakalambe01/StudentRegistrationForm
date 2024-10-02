@@ -4,6 +4,11 @@
     box-sizing: border-box;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
 h1{
     font-size: 30px;
     margin-top: 15px;

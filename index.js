@@ -14,6 +14,8 @@ const addHobbyBtn = document.getElementById("add-hobbies");
 const firstNameMessage = document.getElementById("first-name-message");
 const lastNameMessage = document.getElementById("last-name-message");
 const emailMessage = document.getElementById('email-id-message');
+const classMessage = document.getElementById("class-message");
+const genderMessage = document.getElementById("gender-message");
 const addressMessage = document.getElementById("address-message");
 const mobileNumberMessage = document.getElementById("mobile-number-message");
 const passwordMessage = document.getElementById("password-message");
@@ -24,9 +26,7 @@ const addHobbiesBtn = document.getElementById("add-hobbies");
 const signUpBtn = document.getElementById("sign-up");
 
 
-function isEmpty(string){
-    return string.trim()==='';
-}
+const isEmpty = (string) =>string.trim()==='';
 
 //validate first name
 function validateFirstName(fname){
@@ -159,10 +159,35 @@ let hobbiesList = [];
 }
 
 signUpBtn.addEventListener('click',()=>{
-    let student = [studFirstName, studLastName, studAddress, studClass, studEmailId, studGender, studMobileNumber];
+    //Student Data
+    const student = [
+                        studFirstName, 
+                        studLastName, 
+                        studAddress, 
+                        studClass, 
+                        studEmailId, 
+                        studGender, 
+                        studMobileNumber,
+                        password,
+                        confirmPassword
+                    ];
+    
+    const displayMessages = [
+                        firstNameMessage, 
+                        lastNameMessage, 
+                        addressMessage, 
+                        classMessage, 
+                        emailMessage, 
+                        genderMessage, 
+                        mobileNumberMessage,
+                        passwordMessage,
+                        confirmPaswordMessage
+                    ];
     console.log(document.getElementById('class').value);
 
     let isFieldEmpty = false;
+    let checkPassword = validateLowerCase(password.value) && validateUpperCase(password.value) && validateNumbers(password.value) && validateLength(password.value);
+    let checkPasswordEquality = password.value === confirmPassword.value;
 
     for(let stud of student){
         if(isEmpty(stud.value)){
@@ -175,10 +200,13 @@ signUpBtn.addEventListener('click',()=>{
         }
     }
 
-    if(!isEmpty){
+    if(!isFieldEmpty && checkPassword && checkPasswordEquality){
         const formWrapper = document.querySelector('#reg-form');
         formWrapper.style.display = "none";
+        const heading = document.getElementById('reg-heading')
+        heading.textContent = "Registration Successful!!!";
         setInterval(()=>{
+            heading.textContent = 'Student Registration Form';
             formWrapper.style.display = "flex";
         }, 5000);
     }
@@ -203,6 +231,22 @@ function deleteHobby(index){
 displayAllHobbies();
 
 
+function displayAllGenders(){
+    const genders = ['Male', 'Female', 'Transgender', 'Gender Neutral', 'Non-Binary', 'Agender', 'Pangender', 'Genderqueer', 'Two-Spirit'];
+    let select = document.getElementById('gender');
+    
+    let option = document.createElement('option');
+    option.text = 'Choose a gender';
+    select.add(option);
+
+    for(let i = 0; i<3; i++){
+        let option = document.createElement('option');
+        option.value = genders[i];
+        option.text = genders[i];
+        select.add(option);
+    }
+}
+displayAllGenders();
 function displayAllClasses(){
     const classes = ['Class 1', 'Class 2', 'Class 3', 'Class 4', 'Class 5', 'Class 6', 'Class 7', 'Class 8', 'Class 9', 'Class 10', 'Class 11', 'Class 12'];
     let select = document.getElementById('class');
@@ -210,10 +254,11 @@ function displayAllClasses(){
     let option = document.createElement('option');
     option.text = 'Choose a class';
     select.add(option);
-    for(let i = 0; i<classes.length; i++){
+
+    for(let itemIndex in classes){
         let option = document.createElement('option');
-        option.value = i+1;
-        option.text = classes[i];
+        option.value = itemIndex+1;
+        option.text = classes[itemIndex];
         select.add(option);
     }
 }
