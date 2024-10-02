@@ -52,18 +52,19 @@ function validateLastName(lname){
     }
 }
 
+const validateEmailId = (emailId) =>{
+    const reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+    return reg.test(emailId);
+}
 //validate email id
 function validateEmail(emailField) {
-    
-    var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
-    if (reg.test(emailField.value) == false) {
+    if ( !validateEmailId(emailField.value)) {
         emailMessage.textContent = "Invalid Email Address";
         studEmailId.style.borderColor = "red";
     }else{
         emailMessage.textContent = '';
         studEmailId.style.borderColor = "";
     }
-    
 }
 
 
@@ -78,12 +79,6 @@ function validateMobile(mobileNumber){
     }
     
 }
-
-// function showHidePassword(this){
-
-// }
-
-
 
 
 // Validate lowercase letters
@@ -158,6 +153,12 @@ let hobbiesList = [];
     displayAllHobbies();
 }
 
+const clearAllInputs = () =>{
+    for(let studentField of studentDataArray){
+        studentField.value = '';
+    }
+}
+
 signUpBtn.addEventListener('click',()=>{
     //Student Data
     const student = [
@@ -183,33 +184,47 @@ signUpBtn.addEventListener('click',()=>{
                         passwordMessage,
                         confirmPaswordMessage
                     ];
+                    
     console.log(document.getElementById('class').value);
 
     let isFieldEmpty = false;
-    let checkPassword = validateLowerCase(password.value) && validateUpperCase(password.value) && validateNumbers(password.value) && validateLength(password.value);
+
+    let checkPassword = validateLowerCase(password.value) && 
+                        validateUpperCase(password.value) && 
+                        validateNumbers(password.value) && 
+                        validateLength(password.value);
+
     let checkPasswordEquality = password.value === confirmPassword.value;
 
     for(let stud of student){
         if(isEmpty(stud.value)){
-            document.getElementById("reg-form").style.border = "2px solid red";
+            stud.style.borderColor = "red";
             isFieldEmpty = true;
         }else{
-            // document.getElementById("reg-form").style.border = "2px solid green";
-            
-
+            stud.style.borderColor = "";
         }
     }
 
-    if(!isFieldEmpty && checkPassword && checkPasswordEquality){
+    if(!isFieldEmpty && checkPassword && checkPasswordEquality && validateEmailId(studEmailId.value)){
         const formWrapper = document.querySelector('#reg-form');
         formWrapper.style.display = "none";
         const heading = document.getElementById('reg-heading')
         heading.textContent = "Registration Successful!!!";
+        
         setInterval(()=>{
             heading.textContent = 'Student Registration Form';
             formWrapper.style.display = "flex";
+            
         }, 5000);
+
+        for(let stud of student){
+            stud.value = '';
+        }
+
+        displayAllClasses();
+        displayAllGenders();
     }
+
 });
 
 function displayAllHobbies(){
@@ -232,14 +247,11 @@ displayAllHobbies();
 
 
 function displayAllGenders(){
-    const genders = ['Male', 'Female', 'Transgender', 'Gender Neutral', 'Non-Binary', 'Agender', 'Pangender', 'Genderqueer', 'Two-Spirit'];
+    const genders = ['Choose a gender', 'Male', 'Female', 'Transgender', 'Gender Neutral', 'Non-Binary', 'Agender', 'Pangender', 'Genderqueer', 'Two-Spirit'];
     let select = document.getElementById('gender');
     
-    let option = document.createElement('option');
-    option.text = 'Choose a gender';
-    select.add(option);
-
-    for(let i = 0; i<3; i++){
+    select.innerHTML = '';
+    for(let i = 0; i<4; i++){
         let option = document.createElement('option');
         option.value = genders[i];
         option.text = genders[i];
@@ -247,13 +259,11 @@ function displayAllGenders(){
     }
 }
 displayAllGenders();
+
 function displayAllClasses(){
-    const classes = ['Class 1', 'Class 2', 'Class 3', 'Class 4', 'Class 5', 'Class 6', 'Class 7', 'Class 8', 'Class 9', 'Class 10', 'Class 11', 'Class 12'];
+    const classes = ['Choose a class', 'Class 1', 'Class 2', 'Class 3', 'Class 4', 'Class 5', 'Class 6', 'Class 7', 'Class 8', 'Class 9', 'Class 10', 'Class 11', 'Class 12'];
     let select = document.getElementById('class');
-    
-    let option = document.createElement('option');
-    option.text = 'Choose a class';
-    select.add(option);
+    select.innerHTML = '';
 
     for(let itemIndex in classes){
         let option = document.createElement('option');
