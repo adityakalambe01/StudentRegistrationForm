@@ -1,6 +1,9 @@
 var studentId = 1;
 const studentList = JSON.parse(localStorage.getItem('students')) || [];
 
+const genders = ['Choose a gender', 'Male', 'Female', 'Transgender', 'Gender Neutral', 'Non-Binary', 'Agender', 'Pangender', 'Genderqueer', 'Two-Spirit'];
+const classes = ['Choose a class', 'Class 1', 'Class 2', 'Class 3', 'Class 4', 'Class 5', 'Class 6', 'Class 7', 'Class 8', 'Class 9', 'Class 10', 'Class 11', 'Class 12'];
+
 // Student Data
 let studFirstName = document.getElementById("first-name");
 let studLastName = document.getElementById("last-name");
@@ -221,7 +224,7 @@ signUpBtn.addEventListener('click',()=>{
         }
     }
 
-    if(!isFieldEmpty && checkPassword && checkPasswordEquality && validateEmailId(studEmailId.value) && studGender.value!==0 && studClass.value!==0){
+    if(!isFieldEmpty && checkPassword && checkPasswordEquality && validateEmailId(studEmailId.value) && studGender.value!=='0' && studClass.value!=='0'){
         const formWrapper = document.querySelector('#reg-form');
         formWrapper.style.display = "none";
         const heading = document.getElementById('reg-heading');
@@ -279,7 +282,7 @@ displayAllHobbies();
 
 
 function displayAllGenders(){
-    const genders = ['Choose a gender', 'Male', 'Female', 'Transgender', 'Gender Neutral', 'Non-Binary', 'Agender', 'Pangender', 'Genderqueer', 'Two-Spirit'];
+    
     let select = document.getElementById('gender');
     
     select.innerHTML = '';
@@ -293,13 +296,13 @@ function displayAllGenders(){
 displayAllGenders();
 
 function displayAllClasses(){
-    const classes = ['Choose a class', 'Class 1', 'Class 2', 'Class 3', 'Class 4', 'Class 5', 'Class 6', 'Class 7', 'Class 8', 'Class 9', 'Class 10', 'Class 11', 'Class 12'];
+    
     let select = document.getElementById('class');
     select.innerHTML = '';
 
     for(let itemIndex in classes){
         let option = document.createElement('option');
-        option.value = itemIndex+1;
+        option.value = itemIndex;
         option.text = classes[itemIndex];
         select.add(option);
     }
