@@ -114,26 +114,52 @@ input, select{
 .student-hobbies{
     margin-left: 15px;
     display: flex;
+    flex-direction: column;
+}
+.hobbies-main{
+    display: flex;
+    justify-content: space-evenly;
 }
 .hobbies-main, .hobbies-list{
     width: 50%;
 }
 #hobbies-list{
-    /* display: flex; */
+    display: flex;
 }
+
 .student-hobbies input{
     width: 50%;
 }
+
+.hobbies-main button{
+    height: 25%;
+    width: auto;
+    align-self: center;
+    border-radius: 50%;
+    /* color: white; */
+    border-color: transparent;
+}
+
+.hobbies-main button:hover{
+    color: white;
+    background-color: black;
+}
+
 ul{
     list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 .hobbies-list{
     text-decoration: none;
-    
 }
 #hobbies-list li{
     margin-left: 10px;
+    font-size: 15px;
+    text-align: center;
+    background-color: grey;    
 }
+
 
 
 
