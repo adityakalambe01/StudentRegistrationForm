@@ -5,7 +5,7 @@ const studentList = JSON.parse(localStorage.getItem('students')) || [];
 
 const genders = ['Choose a gender', 'Male', 'Female', 'Transgender', 'Gender Neutral', 'Non-Binary', 'Agender', 'Pangender', 'Genderqueer', 'Two-Spirit'];
 const classes = ['Choose a class', 'Class 1', 'Class 2', 'Class 3', 'Class 4', 'Class 5', 'Class 6', 'Class 7', 'Class 8', 'Class 9', 'Class 10', 'Class 11', 'Class 12'];
-let hobbiesList = ["temp","temp","temp","temp","temp"];
+let hobbiesList = ["temp","temp","temp"];
 
 // Student Data
 let studFirstName = document.getElementById("first-name");

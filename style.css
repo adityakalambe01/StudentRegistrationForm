@@ -76,7 +76,6 @@ input, select{
 
 .class-gender{
     display: inherit;
-
 }
 
 .student-class, .student-gender{
@@ -91,40 +90,48 @@ input, select{
     flex-direction: column;
     margin-left: 15px;
 }
+
 .student-address{
     display: inherit;
     flex-direction: column;
     margin-left: 15px;
 }
+
 .student-email-id{
     display: inherit;
     flex-direction: column;
     margin-left: 15px;
 }
+
 .student-acc-password{
     display: inherit;
-
 }
+
 .password, .confirm-password{
     display: inherit;
     flex-direction: column;
     width: 50%;
     margin-left: 15px;
 }
+
 .student-hobbies{
     margin-left: 15px;
     display: flex;
     flex-direction: column;
 }
+
 .hobbies-main{
     display: flex;
     justify-content: space-evenly;
 }
+
 .hobbies-main, .hobbies-list{
     width: 50%;
 }
+
 #hobbies-list{
     display: flex;
+    width: 200%;
 }
 
 .student-hobbies input{
@@ -150,18 +157,23 @@ ul{
     padding: 0;
     margin: 0;
 }
+
 .hobbies-list{
     text-decoration: none;
 }
+
 #hobbies-list li{
     margin-left: 10px;
     font-size: 15px;
     text-align: center;
-    background-color: grey;    
+    background-color: grey;  
+    padding: 3px 6px;  
 }
 
-
-
+#add-hobbies{
+    padding: 0px 5px;
+    font-size: 20px;
+}
 
 div label{
     pointer-events: none;
@@ -190,10 +202,7 @@ input:focus, textarea:focus, #gender:focus{
     outline: none;
 }
 
-#add-hobbies{
-    padding: 0px 5px;
-    font-size: 20px;
-}
+
 
 #first-name-message,
 #last-name-message, 
@@ -250,8 +259,8 @@ div #confirm-password-message
 
 .student-acc-password span{
     text-align: unset;
-
 }
+
 #password-message{
     color: red;
     font-size: 12px;
@@ -266,8 +275,21 @@ div #confirm-password-message
 
 
 @media screen and (max-width:600px) {
+    body{
+        display: flex;
+        justify-content: center !important;
+    }
+
+    .form-wrapper{
+        width: 350px;
+        
+    }
     .full-name, .class-gender, .student-acc-password{
         flex-direction: column;
+        width: 190%;
+    }
+    input, select{
+        width: 100% !important;
     }
 
 
