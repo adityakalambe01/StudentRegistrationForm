@@ -217,7 +217,8 @@ signUpBtn.addEventListener('click',()=>{
     for(let index in student){
         if(isEmpty(student[index].value)){
             student[index].style.borderColor = "red";
-            displayMessages[index].textContent = invalidMessages[index];
+            if(index < 6)
+                displayMessages[index].textContent = invalidMessages[index];
             isFieldEmpty = true;
         }else{
             student[index].style.borderColor = "";

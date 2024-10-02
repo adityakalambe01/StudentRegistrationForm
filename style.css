@@ -166,8 +166,17 @@ ul{
     margin-left: 10px;
     font-size: 15px;
     text-align: center;
-    background-color: grey;  
-    padding: 3px 6px;  
+    color: white;
+    background-color: rgba(0, 128, 0, 0.644);  
+    padding: 3px 8px;  
+    border-radius: 25px;
+}
+
+li button{
+    margin-left: 2px;
+    color: red;
+    border-color: transparent;
+    background-color: transparent;
 }
 
 #add-hobbies{
@@ -275,18 +284,24 @@ div #confirm-password-message
 
 
 @media screen and (max-width:600px) {
+
     body{
-        display: flex;
-        justify-content: center !important;
+        min-height: 100vh;
+        width: 100%;
+    }
+
+    h1{
+        font-size: 25px;
     }
 
     .form-wrapper{
         width: 350px;
-        
+        /* margin: auto; */
     }
     .full-name, .class-gender, .student-acc-password{
         flex-direction: column;
         width: 190%;
+        /* flex: 1; */
     }
     input, select{
         width: 100% !important;
