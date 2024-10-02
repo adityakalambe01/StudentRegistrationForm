@@ -5,7 +5,7 @@ const studentList = JSON.parse(localStorage.getItem('students')) || [];
 
 const genders = ['Choose a gender', 'Male', 'Female', 'Transgender', 'Gender Neutral', 'Non-Binary', 'Agender', 'Pangender', 'Genderqueer', 'Two-Spirit'];
 const classes = ['Choose a class', 'Class 1', 'Class 2', 'Class 3', 'Class 4', 'Class 5', 'Class 6', 'Class 7', 'Class 8', 'Class 9', 'Class 10', 'Class 11', 'Class 12'];
-let hobbiesList = [];
+const hobbiesList = [];
 
 // Student Data
 let studFirstName = document.getElementById("first-name");
@@ -268,12 +268,20 @@ signUpBtn.addEventListener('click',()=>{
         }, 5000);
 
         student.forEach(item => item.value = '');
-        hobbiesList = [];
+        
+        deleteHobby();
+        displayAllHobbies();
         displayAllClasses();
         displayAllGenders();
     }
 
 });
+
+function deleteHobby(){
+    let length = hobbiesList.length;
+    for(let i = 0; i < length; i++) 
+        hobbiesList.pop();
+}
 
 function displayAllHobbies(){
     document.getElementById("hobbies-list").innerHTML='';
@@ -321,3 +329,41 @@ function displayAllClasses(){
     }
 }
 displayAllClasses();
+
+
+// const displayData = () => {
+//     document.getElementById("student-data").innerHTML = '';
+//     for(let i = 0; i<studentList.length; i++){
+//         document.getElementById(
+//             "student-data"
+//         ).innerHTML += `
+//                     <tr>
+//                         <td>
+//                             ${studentList[i].studentId}
+//                         </td>
+//                         <td>
+//                             ${studentList[i].FirstName} +" "+
+//                             ${studentList[i].LastName}
+//                         </td>
+//                         <td>
+//                             ${studentList[i].Class}
+//                         </td>
+//                         <td>
+//                             ${studentList[i].Gender}
+//                         </td>
+//                         <td>
+//                             ${studentList[i].MobileNumber}
+//                         </td>
+//                         <td>
+//                             ${studentList[i].Address}
+//                         </td>
+//                         <td>
+//                             ${studentList[i].EmailId}
+//                         </td>
+//                         <td>
+//                             ${studentList[i].Hobbies.join(', ')}
+//                         </td>
+//                     </tr> `;
+//     }
+// }
+// displayData();
