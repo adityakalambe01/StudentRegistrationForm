@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Student Registration</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="form-wrapper">
+            <h1>Student Registration Form</h1>
+            <section id="reg-form">
+                <div class="full-name">
+                    <div class="first-name">
+                        <label for="first-name">First Name</label>
+                        <input
+                            type="text"
+                            placeholder="Enter your first name"
+                            id="first-name"
+                            onkeypress="validateFirstName(this)"
+                        />
+                        <br/><span id="first-name-message"></span>
+                    </div>
+
+                    <div class="last-name">
+                        <label for="last-name">Last Name</label>
+                        <input
+                            type="text"
+                            placeholder="Enter your last name"
+                            id="last-name"
+                            onkeypress="validateLastName(this)"
+                        />
+                        <br /><span id="last-name-message"></span>
+                    </div>
+                </div>
+
+                <div class="class-gender">
+                    <div class="student-class">
+                        <label for="class">Class </label>
+
+                        <select  id="class">
+                            <!-- <option value="1" selected>1 st</option>
+                            <option value="2">2 nd</option>
+                            <option value="3">3 rd</option>
+                            <option value="4">4 th</option>
+                            <option value="5">5 th</option>
+                            <option value="6">6 th</option>
+                            <option value="7">7 th</option>
+                            <option value="8">8 th</option>
+                            <option value="9">9 th</option>
+                            <option value="10">10 th</option> -->
+                        </select>
+                    </div>
+                    <div class="student-gender">
+                        <label for="gender">Gender </label>
+
+                        <select  id="gender">
+                            <option value="Male" selected>Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="student-mobile-number">
+                    <label for="mobile-number">Mobile No. </label>
+
+                    <input
+                        type="tel"
+                        placeholder="Enter Mobile Number"
+                        id="mobile-number"
+                        onkeyup="validateMobile(this);"
+                    />
+                    <br /><span id="mobile-number-message"></span>
+                </div>
+
+                <div class="student-address">
+                    <label for="address">Address</label>
+
+                    <textarea placeholder="Enter Your address" id="address"></textarea>
+                    <br /><span id="address-message"></span>
+                </div>
+
+                <div class="student-email-id">
+                    <label for="email-id">Email Id </label>
+
+                    <input
+                        type="text"
+                        placeholder="Enter your email address"
+                        id="email-id"
+                        onblur="validateEmail(this)"
+                    />
+                    <br /><span id="email-id-message"></span>
+                </div>
+
+                <div class="student-acc-password">
+                    <div class="password">
+                        <label for="password">Password </label>
+
+                        <input
+                            type="password"
+                            placeholder="Email Password"
+                            id="password"
+                            onkeyup="validatePassword1()"
+                            autocomplete="on" 
+                        />
+                        <br />
+                        <p id="password-message">
+                            <span id="pass-">Password should be </span>
+                            <span id="pass-char">8+ characters,</span>
+                            <span id="pass-upper">1 uppercase,</span>
+                            <span id="pass-lower">1 lowercase,</span>
+                            <span id="pass-num">1 number.</span>                            
+                        </p>
+                    </div>
+                    <div class="confirm-password">
+                        <label for="confirm-password">Retype password</label>
+
+                        <input
+                            type="password"
+                            placeholder="Retype password"
+                            id="confirm-password"
+                            onkeyup="validatePassword2()" 
+                            autocomplete="on"
+                        />
+                        <br /><span id="confirm-password-message"></span>
+                    </div>
+                </div>
+
+                <div class="student-hobbies">
+                    <div class="hobbies-main">
+                        <label for="hobbies">Hobbies</label>
+                        <input type="text" id="hobbies-input" />
+                        <button id="add-hobbies" type="submit" onclick='addNewHobby()'>+</button>
+                    </div>
+                    <div class="hobbies-list">
+                        <ul id="hobbies-list">                            
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="text-align: center;">
+                    <button id="sign-up" type="submit">Sign Up</button>
+                </div>
+            </section>
+        </div>
+
+        <script src="index.js"></script>
+    </body>
+</html>

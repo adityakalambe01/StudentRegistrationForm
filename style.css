@@ -1,0 +1,230 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+h1{
+    font-size: 30px;
+    margin-top: 15px;
+    background: linear-gradient(90deg, red, green, blue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.form-wrapper{
+    min-height: 100vh;
+    width: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+div{
+    line-height: 1.5;
+}
+div div{
+    margin-top: 5px;
+}
+.full-name{
+    display: flex;
+    
+}
+.first-name, .last-name{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-left: 15px;
+    
+}
+.first-name input,
+.last-name input{
+    width: 100%;
+}
+input, select{
+    height: 35px;
+}
+
+
+.class-gender{
+    display: inherit;
+
+}
+
+.student-class, .student-gender{
+    display: inherit;
+    flex-direction: column;
+    width: 50%;
+    margin-left: 15px;
+}
+
+.student-mobile-number{
+    display: inherit;
+    flex-direction: column;
+    margin-left: 15px;
+}
+.student-address{
+    display: inherit;
+    flex-direction: column;
+    margin-left: 15px;
+}
+.student-email-id{
+    display: inherit;
+    flex-direction: column;
+    margin-left: 15px;
+}
+.student-acc-password{
+    display: inherit;
+
+}
+.password, .confirm-password{
+    display: inherit;
+    flex-direction: column;
+    width: 50%;
+    margin-left: 15px;
+}
+.student-hobbies{
+    margin-left: 15px;
+    display: flex;
+}
+.hobbies-main, .hobbies-list{
+    width: 50%;
+}
+#hobbies-list{
+    /* display: flex; */
+}
+.student-hobbies input{
+    width: 50%;
+}
+ul{
+    list-style-type: none;
+}
+.hobbies-list{
+    text-decoration: none;
+    
+}
+#hobbies-list li{
+    margin-left: 10px;
+}
+
+section{
+    border: 2px solid blue;
+    padding: 20px;
+    font-size: 20px;
+    margin-top: 10px;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    /* background-color: rgba(128, 128, 128, 0.476); */
+    color: black;
+    border-radius: 25px;
+
+}
+
+div label{
+    pointer-events: none;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 15px !important;
+}
+
+input[type="text"], 
+input[type="password"],
+input[type="tel"],
+input[type="email"],
+textarea, 
+#gender,
+#class{
+    padding: 5px 10px;
+    border-radius: 8px;
+    border: 1px solid black;
+    /* height: 45px; */
+
+    
+}
+
+#gender, #class{
+    width: 100%;
+}
+input:focus, textarea:focus, #gender:focus{
+    outline: none;
+}
+
+#add-hobbies{
+    padding: 0px 5px;
+    font-size: 20px;
+}
+
+#first-name-message,
+#last-name-message, 
+#mobile-number-message, 
+#address-message, 
+#email-id-message, 
+#confirm-password-message
+{
+    color: red;
+    font-size: 12px;
+    margin-left: 25px;
+    margin-top: -30px;
+    
+}
+
+div #first-name-message,
+div #last-name-message, 
+div #mobile-number-message, 
+div #address-message, 
+div #email-id-message, 
+div #confirm-password-message
+{
+    text-align: right;
+    margin-right: 10px;
+}
+
+
+#sign-up{
+    font-size: 20px;
+    padding: 5px 0;
+    border: transparent;
+    border-radius: 25px;
+    margin-top: 30px;
+    width: 50%;
+
+}
+
+#sign-up:hover{
+    background-color: grey;
+}
+
+
+
+
+.border{
+    border: 2px dotted black;
+}
+
+
+
+.student-acc-password span{
+    text-align: unset;
+
+}
+#password-message{
+    color: red;
+    font-size: 12px;
+    margin-top: -25px;
+    margin-left: 15px;
+    text-align: justify;
+}
+
+#confirm-password-message{
+    
+}
+
+
+@media screen and (max-width:600px) {
+    .full-name, .class-gender, .student-acc-password{
+        flex-direction: column;
+    }
+
+
+}
