@@ -1,3 +1,6 @@
+var studentId = 1;
+const studentList = JSON.parse(localStorage.getItem('students')) || [];
+
 // Student Data
 let studFirstName = document.getElementById("first-name");
 let studLastName = document.getElementById("last-name");
@@ -185,7 +188,7 @@ signUpBtn.addEventListener('click',()=>{
                         confirmPaswordMessage
                     ];
                     
-    console.log(document.getElementById('class').value);
+    // console.log(document.getElementById('class').value);
 
     let isFieldEmpty = false;
 
@@ -205,11 +208,29 @@ signUpBtn.addEventListener('click',()=>{
         }
     }
 
-    if(!isFieldEmpty && checkPassword && checkPasswordEquality && validateEmailId(studEmailId.value)){
+    if(!isFieldEmpty && checkPassword && checkPasswordEquality && validateEmailId(studEmailId.value) && studGender.value!==0 && studClass.value!==0){
         const formWrapper = document.querySelector('#reg-form');
         formWrapper.style.display = "none";
-        const heading = document.getElementById('reg-heading')
+        const heading = document.getElementById('reg-heading');
+
         heading.textContent = "Registration Successful!!!";
+        
+        studentList.push(
+            {
+                studentId : studentId++,
+                FirstName : studFirstName.value,
+                LastName :studLastName.value,
+                Address : studAddress.value,
+                Class : studClass.value,
+                EmailId : studEmailId.value,
+                Gender : studGender.value,
+                MobileNumber : studMobileNumber.value,
+                Password: password.value,
+                Hobbies : hobbiesList
+            }
+        );
+
+        localStorage.setItem("students", JSON.stringify(studentList));
         
         setInterval(()=>{
             heading.textContent = 'Student Registration Form';
@@ -217,9 +238,7 @@ signUpBtn.addEventListener('click',()=>{
             
         }, 5000);
 
-        for(let stud of student){
-            stud.value = '';
-        }
+        student.forEach(item => item.value = '');
 
         displayAllClasses();
         displayAllGenders();
@@ -273,3 +292,5 @@ function displayAllClasses(){
     }
 }
 displayAllClasses();
+
+
