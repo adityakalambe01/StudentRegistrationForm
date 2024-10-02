@@ -187,6 +187,17 @@ signUpBtn.addEventListener('click',()=>{
                         passwordMessage,
                         confirmPaswordMessage
                     ];
+    const invalidMessages = [
+                        "Invalid First Name",
+                        "Invalid Last Name",
+                        "Invalid Address",
+                        "Invalid Class",
+                        "Invalid Email Address",
+                        "Invalid Gender",
+                        "Invalid Mobile No.",
+                        "Invalid Password",
+                        "Passwords do not match"
+    ];
                     
     // console.log(document.getElementById('class').value);
 
@@ -199,12 +210,14 @@ signUpBtn.addEventListener('click',()=>{
 
     let checkPasswordEquality = password.value === confirmPassword.value;
 
-    for(let stud of student){
-        if(isEmpty(stud.value)){
-            stud.style.borderColor = "red";
+    for(let index in student){
+        if(isEmpty(student[index].value)){
+            student[index].style.borderColor = "red";
+            displayMessages[index].textContent = invalidMessages[index];
             isFieldEmpty = true;
         }else{
-            stud.style.borderColor = "";
+            student[index].style.borderColor = "";
+            // displayMessages[index].textContent = "";
         }
     }
 
