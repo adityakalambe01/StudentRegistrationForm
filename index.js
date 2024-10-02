@@ -237,9 +237,9 @@ signUpBtn.addEventListener('click',()=>{
                 FirstName : studFirstName.value,
                 LastName :studLastName.value,
                 Address : studAddress.value,
-                Class : studClass.value,
+                Class : classes[studClass.value],
                 EmailId : studEmailId.value,
-                Gender : studGender.value,
+                Gender : genders[studGender.value],
                 MobileNumber : studMobileNumber.value,
                 Password: password.value,
                 Hobbies : hobbiesList
@@ -288,7 +288,7 @@ function displayAllGenders(){
     select.innerHTML = '';
     for(let i = 0; i<4; i++){
         let option = document.createElement('option');
-        option.value = genders[i];
+        option.value = i;
         option.text = genders[i];
         select.add(option);
     }
