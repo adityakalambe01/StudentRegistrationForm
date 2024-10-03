@@ -7,6 +7,19 @@
         <style>
             table {
                 width: 100%;
+                /* border: 1px solid black; */
+            }
+            th, td{
+                text-align: center;
+                border: 1px solid black;
+                padding: 15px;
+                font-size: 18px;
+            }
+            /* tr{
+                padding: 15px;
+            } */
+            tr:hover{
+                background-color: grey;
             }
         </style>
     </head>
@@ -36,7 +49,7 @@
                     document.getElementById("student-data").innerHTML += `
                     <tr>
                         <td>
-                            ${studentList[i].studentId}
+                            ${i+1}
                         </td>
                         <td>
                             ${studentList[i].FirstName} ${studentList[i].LastName}
