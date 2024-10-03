@@ -111,6 +111,7 @@ function validateLength(value){
     return value.length >= 8;
 }
 
+//Main Password
 function validatePassword1() {
     let value = password.value;
     const chars = document.getElementById('pass-char');
@@ -136,6 +137,7 @@ function validatePassword1() {
     }
 }
 
+//Confirm Password
 function validatePassword2() {
 
     let value = confirmPassword.value;
@@ -155,7 +157,7 @@ function validatePassword2() {
 }
 
 
-
+// Add New Hobbies
 addHobbiesBtn.addEventListener('click', () =>{
     let hobby = document.getElementById("hobbies-input");
     if(hobby.value!==''){
@@ -171,6 +173,7 @@ const clearAllInputs = () =>{
     }
 }
 
+// Add Student Data
 signUpBtn.addEventListener('click',()=>{
     //Student Data
     const student = [
@@ -185,6 +188,7 @@ signUpBtn.addEventListener('click',()=>{
                         confirmPassword
                     ];
     
+    //
     const displayMessages = [
                         firstNameMessage, 
                         lastNameMessage, 
@@ -211,6 +215,7 @@ signUpBtn.addEventListener('click',()=>{
 
     if (studClass.value==='0'){
         classMessage.textContent = "Select Class";
+        classMessage.style.color = 'red';
     }
                     
 
@@ -222,6 +227,8 @@ signUpBtn.addEventListener('click',()=>{
                         validateLength(password.value);
 
     let checkPasswordEquality = password.value === confirmPassword.value;
+    
+    let checkEmail = validateEmailId(studEmailId.value);
 
     for(let index in student){
         if(isEmpty(student[index].value)){
@@ -235,9 +242,11 @@ signUpBtn.addEventListener('click',()=>{
         }
     }
 
+    validateEmail(studEmailId);
+
     
 
-    if(!isFieldEmpty && checkPassword && checkPasswordEquality && validateEmailId(studEmailId.value) && studGender.value!=='0' && studClass.value!=='0'){
+    if(!isFieldEmpty && checkPassword && checkPasswordEquality && validateEmailId(studEmailId.value) && studGender.value!=='0' && studClass.value!=='0' && checkEmail){
         const formWrapper = document.querySelector('#reg-form');
         formWrapper.style.display = "none";
         const heading = document.getElementById('reg-heading');
@@ -274,6 +283,9 @@ signUpBtn.addEventListener('click',()=>{
         displayAllClasses();
         displayAllGenders();
     }
+    // else{
+    //     alert("Something went wrong!! Please make sure all fields should be filled")
+    // }
 
 });
 
