@@ -316,8 +316,9 @@ signUpBtn.addEventListener("click", (event) => {
         localStorage.setItem("students", JSON.stringify(studentList));
 
         setInterval(() => {
-            heading.textContent = "Student Registration Form";
-            formWrapper.style.display = "flex";
+            // heading.textContent = "Student Registration Form";
+            // formWrapper.style.display = "flex";
+            window.location.href = "index.html";
             
         }, 5000);
 
