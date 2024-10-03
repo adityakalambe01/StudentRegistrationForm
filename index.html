@@ -10,7 +10,7 @@
     <body>
         <div class="form-wrapper">
             <h1 id="reg-heading">Student Registration</h1>
-            <section id="reg-form">
+            <form id="reg-form">
                 <div class="full-name">
                     <div class="first-name">
                         <label for="first-name">First Name</label>
@@ -18,7 +18,7 @@
                             type="text"
                             placeholder="Enter your first name"
                             id="first-name"
-                            onkeypress="validateFirstName(this)"
+                            onkeypress="validateName(this)"
                         />
                         <br/><span id="first-name-message"></span>
                     </div>
@@ -29,7 +29,7 @@
                             type="text"
                             placeholder="Enter your last name"
                             id="last-name"
-                            onkeypress="validateLastName(this)"
+                            onkeypress="validateName(this)"
                         />
                         <br /><span id="last-name-message"></span>
                     </div>
@@ -122,7 +122,7 @@
                     <div class="hobbies-main">
                         <label for="hobbies-input">Hobbies</label>
                         <input type="text" id="hobbies-input" />
-                        <button id="add-hobbies" type="submit">+</button>
+                        <button id="add-hobbies" type="button">+</button>
                     </div>
                     <div class="hobbies-list">
                         <ul id="hobbies-list">                            
@@ -131,9 +131,9 @@
                 </div>
 
                 <div style="text-align: center;">
-                    <button id="sign-up" type="submit">Sign Up</button>
+                    <button id="sign-up" type="button">Sign Up</button>
                 </div>
-            </section>
+            </form>
         </div>
 
         <script src="index.js"></script>
