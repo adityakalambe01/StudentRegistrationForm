@@ -318,6 +318,7 @@ signUpBtn.addEventListener("click", (event) => {
         setInterval(() => {
             heading.textContent = "Student Registration Form";
             formWrapper.style.display = "flex";
+            
         }, 5000);
 
         student.forEach((item) => (item.value = ""));
@@ -326,6 +327,7 @@ signUpBtn.addEventListener("click", (event) => {
         displayAllHobbies();
         displayAllClasses();
         displayAllGenders();
+        // passwordMessage.style.color = 'red';
     }
     // else{
     //     event.preventDefault();
