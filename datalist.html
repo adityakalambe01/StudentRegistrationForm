@@ -1,52 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        table{
-            width: 100%;
-        }
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            table {
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <table cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Roll No.</th>
+                    <th>Full Name</th>
+                    <th>Class</th>
+                    <th>Gender</th>
+                    <th>Mobile No.</th>
+                    <th>Address</th>
+                    <th>Email ID</th>
+                    <th>Hobbies</th>
+                </tr>
+            </thead>
 
-    </style>
-</head>
-<body>
-    <table border="1px solid black;" cellpadding="0" cellspacing="0">
-        <thead>
-            <tr>
-                <th>
-                    Roll No.
-                </th>
-                <th>
-                    Full Name
-                </th>
-                <th>
-                    Class
-                </th>
-                <th>
-                    Gender
-                </th>
-                <th>
-                    Mobile No.
-                </th>
-                <th>
-                    Address
-                </th>
-                <th>
-                    Email ID
-                </th>
-                <th>
-                    Hobbies
-                </th>
-            </tr>
-        </thead>
+            <tbody id="student-data"></tbody>
+        </table>
 
-        <tbody id="student-data">
-
-        </tbody>
-    </table>
-    
-    <script src="index.js"></script>
-</body>
+        <script>
+            const studentList = JSON.parse(localStorage.getItem("students")) || [];
+            const displayData = () => {
+                document.getElementById("student-data").innerHTML = "";
+                for (let i = 0; i < studentList.length; i++) {
+                    document.getElementById("student-data").innerHTML += `
+                    <tr>
+                        <td>
+                            ${studentList[i].studentId}
+                        </td>
+                        <td>
+                            ${studentList[i].FirstName} ${studentList[i].LastName}
+                            
+                        </td>
+                        <td>
+                            ${studentList[i].Class}
+                        </td>
+                        <td>
+                            ${studentList[i].Gender}
+                        </td>
+                        <td>
+                            ${studentList[i].MobileNumber}
+                        </td>
+                        <td>
+                            ${studentList[i].Address}
+                        </td>
+                        <td>
+                            ${studentList[i].EmailId}
+                        </td>
+                        <td>
+                            ${studentList[i].Hobbies.join(", ")}
+                        </td>
+                    </tr> `;
+                }
+            };
+            displayData();
+        </script>
+    </body>
 </html>
